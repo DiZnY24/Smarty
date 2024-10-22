@@ -167,13 +167,19 @@ def test_page_search_edit(driver):
         # ยกเเลิก
 
                 element = WebDriverWait(driver, 10).until(
-                EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div[3]/div/div[2]/button[1]")) 
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div[3]/div/div[3]/button[1]")) 
                 )
                 print("รอจนกว่าจะโชว์เมนูปรากฏขึ้น.")
                 time.sleep(0.1) 
 
+                key_input_text = WebDriverWait(driver, 10).until(
+                     EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div[2]/div/div/div/div/div/input'))
+                )
+                key_input_text.send_keys("ชำระเรียบร้อย")
+                time.sleep(0.5)
+
                 cancel = WebDriverWait(driver, 30).until(
-                    EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div[2]/button[1]'))
+                    EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div[3]/button[1]'))
                 )
                 assert cancel.is_displayed(), 'Element is not displayed!'
                 assert cancel.is_enabled(), 'Element is not enabled!'
