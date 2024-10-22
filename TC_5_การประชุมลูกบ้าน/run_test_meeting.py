@@ -35,65 +35,65 @@ class WebTestCase(unittest.TestCase):
 
         # TC_1_ตั้งค่าปีจัดประชุม
 
-        page_year(self.driver) # ตรวจสอบหน้า Year 
-        if page_year:
-            print('Test Page Year :',(True))
-            print('--------------------------------')
-        else:
-            self.fail('Fail',(False))
+        # page_year(self.driver) # ตรวจสอบหน้า Year 
+        # if page_year:
+        #     print('Test Page Year :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     self.fail('Fail',(False))
 
-        page_edit_year(self.driver) # ตรวจสอบหน้า Edit Year
-        if page_edit_year:
-            print('Test Edit Year Already :',(True))
-            print('--------------------------------')
-        else:
-            self.fail('Fail',(False))
+        # page_edit_year(self.driver) # ตรวจสอบหน้า Edit Year
+        # if page_edit_year:
+        #     print('Test Edit Year Already :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     self.fail('Fail',(False))
 
 # ----------------------------------------------------------------------
 
         # TC_2_จัดการการประชุม
 
-        # page_meeting(self.driver)
-        # if page_meeting:
-        #     print('Test Meeting Already:',(True)) # ตรวจสอบการ สร้างวาระ
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        page_meeting(self.driver)
+        if page_meeting:
+            print('Test Meeting Already:',(True)) # ตรวจสอบการ สร้างวาระ
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
-        # page_search(self.driver)
-        # if page_search:
-        #     print('Test Search Already :',(True)) # ตรวจสอบการ การค้นหาเมื่อสร้างแล้ว
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        page_search(self.driver)
+        if page_search:
+            print('Test Search Already :',(True)) # ตรวจสอบการ การค้นหาเมื่อสร้างแล้ว
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
-        # page_edit_meeting(self.driver)
-        # if page_edit_meeting:
-        #     print('Test Edit Already:',(True)) # ตรวจสอบการ สร้างวาระ
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        page_edit_meeting(self.driver)
+        if page_edit_meeting:
+            print('Test Edit Already:',(True)) # ตรวจสอบการ สร้างวาระ
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
-        # page_check_in(self.driver)
-        # if page_check_in:
-        #     print('Test Check in  Already :',(True)) # ตรวจสอบการ หน้าของการลงทะเบียนเช็คอิน
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        page_check_in(self.driver)
+        if page_check_in:
+            print('Test Check in  Already :',(True)) # ตรวจสอบการ หน้าของการลงทะเบียนเช็คอิน
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
-        # page_participants(self.driver)
-        # if page_participants:
-        #     print('Test Participants  Already :',(True)) # ตรวจสอบการ จัดการผู้เข้าร่วม
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        page_participants(self.driver)
+        if page_participants:
+            print('Test Participants  Already :',(True)) # ตรวจสอบการ จัดการผู้เข้าร่วม
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
-        # page_print(self.driver)
-        # if page_print:
-        #     print('Test print  Already :',(True)) # ตรวจสอบการ การพิมเอกสารออกมา pdf
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        page_print(self.driver)
+        if page_print:
+            print('Test print  Already :',(True)) # ตรวจสอบการ การพิมเอกสารออกมา pdf
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
 
 

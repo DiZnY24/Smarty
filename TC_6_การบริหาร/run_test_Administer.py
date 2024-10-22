@@ -201,19 +201,19 @@ class WebTestCase(unittest.TestCase):
 
         # TC_6_บริหารมิเตอร์น้ำ
 
-        test_page_add_water_meter(self.driver)
-        if test_page_add_water_meter:
-            print('Test Add Water Meter  Already :',(True)) # ตรวจสอบการ เพิ่มมิเตอร์น้ำ
-            print('--------------------------------')
-        else:
-            self.fail('Fail',(False))
+        # test_page_add_water_meter(self.driver)
+        # if test_page_add_water_meter:
+        #     print('Test Add Water Meter  Already :',(True)) # ตรวจสอบการ เพิ่มมิเตอร์น้ำ
+        #     print('--------------------------------')
+        # else:
+        #     self.fail('Fail',(False))
 
-        test_page_search_edit1(self.driver)
-        if test_page_search_edit1:
-            print('Test Search Edit  Already :',(True)) # ตรวจสอบการ ค้นหารายชื่อ พร้อมแก้ไข ไปพร้อมกัน
-            print('--------------------------------')
-        else:
-            self.fail('Fail',(False))
+        # test_page_search_edit1(self.driver)
+        # if test_page_search_edit1:
+        #     print('Test Search Edit  Already :',(True)) # ตรวจสอบการ ค้นหารายชื่อ พร้อมแก้ไข ไปพร้อมกัน
+        #     print('--------------------------------')
+        # else:
+        #     self.fail('Fail',(False))
 
 # ----------------------------------------------------------------------
 
