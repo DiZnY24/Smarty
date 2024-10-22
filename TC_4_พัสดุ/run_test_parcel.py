@@ -31,19 +31,19 @@ class WebTestCase(unittest.TestCase):
 
         # TC_1_จัดการพัสดุ
 
-        page_parcel(self.driver) # ตรวจสอบหน้า parcel
-        if page_parcel:
-            print('Test Page parcel :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_parcel(self.driver) # ตรวจสอบหน้า parcel
+        # if page_parcel:
+        #     print('Test Page parcel :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
-        page_search(self.driver)
-        if page_search:
-            print('Test search parcel :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_search(self.driver)
+        # if page_search:
+        #     print('Test search parcel :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
 # ----------------------------------------------------------------------
 
@@ -56,12 +56,12 @@ class WebTestCase(unittest.TestCase):
         # else:
         #     print('Fail',(False))
 
-        # page_dalete(self.driver)
-        # if page_dalete:
-        #     print('Test Delete Already :',(True)) # ตรวจสอบการ Test delere
-        #     print('--------------------------------')
-        # else:
-        #     print('Fail',(False))
+        page_dalete(self.driver)
+        if page_dalete:
+            print('Test Delete Already :',(True)) # ตรวจสอบการ Test delere
+            print('--------------------------------')
+        else:
+            print('Fail',(False))
 
 # ----------------------------------------------------------------------
 

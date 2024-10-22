@@ -18,7 +18,7 @@ def page_dalete(driver):
             # search Home Page
 
             delete = WebDriverWait(driver, 30).until(
-                 EC.element_to_be_clickable((By.XPATH, '//div/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[1]/div[5]/div/button'))
+                 EC.element_to_be_clickable((By.XPATH, '//div/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div/div/div[3]/div[5]/div/button'))
             )
             assert delete.is_displayed(), 'Element is not displayed!'
             assert delete.is_enabled(), 'Element is not enabled!'
