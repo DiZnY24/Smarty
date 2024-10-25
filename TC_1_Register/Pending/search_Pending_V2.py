@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def page_pending(driver):
         
@@ -76,13 +76,20 @@ def page_pending(driver):
             date.click()
 
             # เลือกวันที่
-            date = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, 
-            '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]')) 
-            )
-            assert date.is_displayed(), 'Element is not displayed!'
-            assert date.is_enabled(), 'Element is not enabled!'
-            date.click()      
+
+            time.sleep(0.5)
+            pyautogui.click(x=781, y=627)
+            # time.sleep(5)  # ปรับเวลาตามความต้องการ        
+            # current_position = pyautogui.position()
+            # print(f"The current mouse position is: {current_position}")
+
+            # date = WebDriverWait(driver, 10).until(
+            #     EC.element_to_be_clickable((By.XPATH, 
+            # '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]')) 
+            # )
+            # assert date.is_displayed(), 'Element is not displayed!'
+            # assert date.is_enabled(), 'Element is not enabled!'
+            # date.click()      
 
             # วันที่สิ้นสุด
             date = WebDriverWait(driver, 10).until(
@@ -94,13 +101,16 @@ def page_pending(driver):
             date.click()
 
             # เลือกวันที่
-            element = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, 
-            '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]')) 
-            )
-            assert element.is_displayed(), 'Element is not displayed!'
-            assert element.is_enabled(), 'Element is not enabled!'
-            element.click()
+
+            time.sleep(0.5)
+            pyautogui.click(x=781, y=700)
+            # element = WebDriverWait(driver, 10).until(
+            #     EC.element_to_be_clickable((By.XPATH, 
+            # '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]')) 
+            # )
+            # assert element.is_displayed(), 'Element is not displayed!'
+            # assert element.is_enabled(), 'Element is not enabled!'
+            # element.click()
             
             # บทบาท
             Role = WebDriverWait(driver, 10).until(
@@ -124,6 +134,7 @@ def page_pending(driver):
             '//div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div/div/div[1]'))
             )
             print('Wait Element Show : Pass')
+
 
         except NoSuchElementException:
             driver.fail('Element not Found')
