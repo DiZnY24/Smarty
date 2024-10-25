@@ -37,10 +37,10 @@ class WebTestCase(unittest.TestCase):
                 break
             pass
 
-    @classmethod
-    def tearDownClass(cls):
-        time.sleep(1)
-        cls.driver.quit()
+    # @classmethod
+    # def tearDownClass(cls):
+    #     time.sleep(1)
+    #     cls.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
