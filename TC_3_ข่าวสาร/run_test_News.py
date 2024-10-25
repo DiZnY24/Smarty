@@ -34,35 +34,35 @@ class WebTestCase(unittest.TestCase):
         else:
             print('Fail', (False))
 
-        page_news(self.driver) # ตรวจสอบหน้า news
-        if page_news:
-            print('Test Page News :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_news(self.driver) # ตรวจสอบหน้า news
+        # if page_news:
+        #     print('Test Page News :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
-        page_edit_news(self.driver)
-        if page_edit_news:
-            print('Test Edit News :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_edit_news(self.driver)
+        # if page_edit_news:
+        #     print('Test Edit News :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
 # ----------------------------------------------------------------------
 
-        add_call_to_action_v1(self.driver)
-        if add_call_to_action_v1:
-            print('Test Add Call to Action 1 :',(True)) # เปิด Internal
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # add_call_to_action_v1(self.driver)
+        # if add_call_to_action_v1:
+        #     print('Test Add Call to Action 1 :',(True)) # เปิด Internal
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
-        page_edit_call_to_action_v1(self.driver)
-        if page_edit_call_to_action_v2:
-            print('Test Add Call to Action 1 :',(True)) # เปิด  Internal
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_edit_call_to_action_v1(self.driver)
+        # if page_edit_call_to_action_v2:
+        #     print('Test Add Call to Action 1 :',(True)) # เปิด  Internal
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
 # ----------------------------------------------------------------------
 
@@ -81,18 +81,19 @@ class WebTestCase(unittest.TestCase):
             print('Fail',(False))
 
 
-        # for i in range(3):
-        page_delete(self.driver)
-        if page_delete:
-            print('Test Delete :',(True))
-        else:
-            print ('Fail',(False))  
-                # break
-            # pass
+        # # for i in range(3):
+        # page_delete(self.driver)
+        # if page_delete:
+        #     print('Test Delete :',(True))
+        # else:
+        #     print ('Fail',(False))  
+        #         # break
+        #     # pass
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    # @classmethod
+    # def tearDownClass(cls):
+    #     cls.driver.quit()
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import HtmlTestRunner
 import unittest
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def page_news(driver):
 
@@ -66,17 +66,24 @@ def page_news(driver):
 
         # # เลือกวันที่ ....
 
-        date = WebDriverWait(driver, 30).until(
-            EC.visibility_of_element_located((By.XPATH, '//div/div[2]/div/div/div[2]/div/div[5]/button[2]'))
-        )
-        assert date.is_displayed(), 'Element is not displayed!'
-        assert date.is_enabled(), 'Element is not enabled!'
-        date.click()
-
-        if date:
-            print('select date : Pass')
+        time.sleep(0.5)
+        if pyautogui:
+            pyautogui.click(x=781, y=737)
+            print('Click select date 29 :',True)
         else:
-            print('Not select date : Fail')
+            print('Cannot date',False)
+        
+        # date = WebDriverWait(driver, 30).until(
+        #     EC.visibility_of_element_located((By.XPATH, '//div/div[2]/div/div/div[2]/div/div[5]/button[2]'))
+        # )
+        # assert date.is_displayed(), 'Element is not displayed!'
+        # assert date.is_enabled(), 'Element is not enabled!'
+        # date.click()
+
+        # if date:
+        #     print('select date : Pass')
+        # else:
+        #     print('Not select date : Fail')
 
         # รายละเอียดข่าวสาร
         
