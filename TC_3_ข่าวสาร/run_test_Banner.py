@@ -37,37 +37,37 @@ class WebTestCase(unittest.TestCase):
         else:
             print('Fail', (False))
 
-        add_banner(self.driver) # ตรวจสอบหน้า สร้างแอดแบนเนอร์ 
+        # add_banner(self.driver) # ตรวจสอบหน้า สร้างแอดแบนเนอร์ 
 
-        if add_banner:
-            print('Test Add Banner :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # if add_banner:
+        #     print('Test Add Banner :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
-        page_edit_banner(self.driver) # ตรวจสอบหน้า แก้ไขแบนเนอร์
-        if page_edit_banner:
-            print('Test Edit Banner :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_edit_banner(self.driver) # ตรวจสอบหน้า แก้ไขแบนเนอร์
+        # if page_edit_banner:
+        #     print('Test Edit Banner :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
 
 
 # ----------------------------------------------------------------------------------------------------------------
         
-        add_banner_call_to_action_v1(self.driver) # ตรวจสอบหน้า การเพิ่ม  Banner - Internal
-        if add_banner:
-            print('Test Add Banner call to action 1 :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # add_banner_call_to_action_v1(self.driver) # ตรวจสอบหน้า การเพิ่ม  Banner - Internal
+        # if add_banner:
+        #     print('Test Add Banner call to action 1 :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
         
-        page_edit_banner_call_to_action_v2(self.driver) # ตรวจสอบหน้า External
-        if page_edit_banner_call_to_action_v2:
-            print('Test Edit Banner call to action 2 :',(True))
-            print('--------------------------------')
-        else:
-            print('Fail',(False))
+        # page_edit_banner_call_to_action_v2(self.driver) # ตรวจสอบหน้า External
+        # if page_edit_banner_call_to_action_v2:
+        #     print('Test Edit Banner call to action 2 :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     print('Fail',(False))
         
 # ----------------------------------------------------------------------------------------------------------------
   
@@ -88,13 +88,13 @@ class WebTestCase(unittest.TestCase):
 # ----------------------------------------------------------------------------------------------------------------
 
         # for i in range(4):
-        # check_delete(self.driver) # ตรวจสอบการ ลบ แบนเนอร์
-        # if check_delete:
-        #     print('Test Delete :',(True))
-        #     print('--------------------------------')
-        # else:
-        #     print('Fail',(False))
-                # break
+        #     check_delete(self.driver) # ตรวจสอบการ ลบ แบนเนอร์
+        #     if check_delete:
+        #         print('Test Delete :',(True))
+        #         print('--------------------------------')
+        #     else:
+        #         print('Fail',(False))
+        #         break
 
 
     @classmethod

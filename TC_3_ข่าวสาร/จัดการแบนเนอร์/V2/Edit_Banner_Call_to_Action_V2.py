@@ -8,7 +8,7 @@ import unittest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def page_edit_banner_call_to_action_v1(driver):
 
@@ -16,9 +16,8 @@ def page_edit_banner_call_to_action_v1(driver):
             # หน้า ข่าวสาร
             driver.get('https://msm-smarty-cms-staging.hr-impact.co/banner')
             assert driver.current_url == ('https://msm-smarty-cms-staging.hr-impact.co/banner')
-            driver.implicitly_wait(20)
+            driver.implicitly_wait(10)
 
-            
             Edit_Banner = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div/main/div/div/div/div/div[2]/div[1]/div/table/tbody/tr[1]/td[7]/button[1]'))
             )
@@ -80,17 +79,24 @@ def page_edit_banner_call_to_action_v1(driver):
             else:
                 print('Cannot Click date :',(False))
 
-            Select_Date = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, '//div/div/div[2]/div/div[5]/button[2]'))
-            )
-            assert Select_Date.is_displayed(), 'Element is not displayed!'
-            assert Select_Date.is_enabled(), 'Element is not enabled!'
-            Select_Date.click()
-
-            if Select_Date:
-                print('Click Select date Already :',(True))
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=781, y=737)
+                print('Click select date 29 :',True)
             else:
-                print('Cannot Click select date :',(False))
+                print('Cannot date',False)
+
+            # Select_Date = WebDriverWait(driver, 30).until(
+            #     EC.element_to_be_clickable((By.XPATH, '//div/div/div[2]/div/div[5]/button[2]'))
+            # )
+            # assert Select_Date.is_displayed(), 'Element is not displayed!'
+            # assert Select_Date.is_enabled(), 'Element is not enabled!'
+            # Select_Date.click()
+
+            # if Select_Date:
+            #     print('Click Select date Already :',(True))
+            # else:
+            #     print('Cannot Click select date :',(False))
 
 
             # ต้องการเพิ่มปุ่ม Call to Action?

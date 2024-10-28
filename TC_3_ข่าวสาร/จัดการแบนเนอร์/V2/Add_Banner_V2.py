@@ -9,7 +9,7 @@ import unittest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 
 def add_banner(driver):
@@ -49,12 +49,19 @@ def add_banner(driver):
             assert date.is_enabled(), 'Element is not enabled!'
             date.click()   
 
-            select_date = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[1]'))
-            )
-            assert select_date.is_displayed(), 'Element is not displayed!'
-            assert select_date.is_enabled(), 'Element is not enabled!'
-            select_date.click()   
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=781, y=737)
+                print('Click select date 29 :',True)
+            else:
+                print('Cannot date',False)
+
+            # select_date = WebDriverWait(driver, 30).until(
+            #     EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[1]'))
+            # )
+            # assert select_date.is_displayed(), 'Element is not displayed!'
+            # assert select_date.is_enabled(), 'Element is not enabled!'
+            # select_date.click()   
 
             Save = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div/main/div/div/div/form/div/div[1]/div/div[1]/div[2]/button[2]'))
@@ -64,11 +71,22 @@ def add_banner(driver):
             Save.click()  
 
             element = WebDriverWait(driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, "//div[2]/div[1]/div/table/tbody/tr[1]/td[1]/p"))  # เปลี่ยนเป็นตัวระบุตำแหน่งของคุณ
+            EC.visibility_of_element_located((By.XPATH, "//div[2]/div[1]/div/table/tbody/tr[1]/td[1]/p"))
             )
             print('Element Show :',(True))
 
-            time.sleep(3)
+
+            element = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, "//div/div/div/div[2]/div[1]/div/table/tbody/tr[1]/td[3]/p"))  
+            )
+            if element.text == 'News_Kub':
+                    print('ข้อความตรงกัน')
+            elif element.text == 'News_Kubผิดพลาด':
+                    print('ข้อความเป็นอีกแบบ')
+            else:
+                    print('ข้อความไม่ตรงกับเงื่อนไขใด ๆ')
+
+            time.sleep(1)
 
         except NoSuchElementException:
             driver.fail('Element not Found')

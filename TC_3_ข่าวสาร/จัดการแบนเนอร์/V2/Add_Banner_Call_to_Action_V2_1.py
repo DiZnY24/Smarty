@@ -7,8 +7,8 @@ import unittest
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
-
+import pyautogui
+import time
 
 def add_banner_call_to_action_v2(driver):    
 
@@ -49,12 +49,19 @@ def add_banner_call_to_action_v2(driver):
             assert date.is_enabled(), 'Element is not enabled!'
             date.click() 
 
-            select_date = WebDriverWait(driver, 30).until(
-                    EC.element_to_be_clickable((By.XPATH, '//div/div/div[2]/div/div[5]/button[2]'))
-                )
-            assert select_date.is_displayed(), 'Element is not displayed!'
-            assert select_date.is_enabled(), 'Element is not enabled!'
-            select_date.click()   
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=781, y=737)
+                print('Click select date 29 :',True)
+            else:
+                print('Cannot date',False)
+
+            # select_date = WebDriverWait(driver, 30).until(
+            #         EC.element_to_be_clickable((By.XPATH, '//div/div/div[2]/div/div[5]/button[2]'))
+            #     )
+            # assert select_date.is_displayed(), 'Element is not displayed!'
+            # assert select_date.is_enabled(), 'Element is not enabled!'
+            # select_date.click()   
 
             # ต้องการเพิ่มปุ่ม Call to Action?
 

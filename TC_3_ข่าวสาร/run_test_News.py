@@ -79,7 +79,7 @@ class WebTestCase(unittest.TestCase):
             print('--------------------------------')
         else:
             print('Fail',(False))
-
+            
 
         # # for i in range(3):
         # page_delete(self.driver)
