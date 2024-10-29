@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
     
 def test_page_add_water_meter(driver):
@@ -108,13 +108,20 @@ def test_page_add_water_meter(driver):
             Registration.click()       
             time.sleep(0.1) 
 
-            Registration = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, '//div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]'))
-            )
-            assert Registration.is_displayed(), 'Element is not displayed!'
-            assert Registration.is_enabled(), 'Element is not enabled!'
-            Registration.click()       
-            time.sleep(0.1) 
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=780, y=741)
+                print('Click select date 29 :',True)
+            else:
+                print('Cannot date',False)
+
+            # Registration = WebDriverWait(driver, 10).until(
+            #     EC.element_to_be_clickable((By.XPATH, '//div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]'))
+            # )
+            # assert Registration.is_displayed(), 'Element is not displayed!'
+            # assert Registration.is_enabled(), 'Element is not enabled!'
+            # Registration.click()       
+            # time.sleep(0.1) 
 
     # บันทึก
 

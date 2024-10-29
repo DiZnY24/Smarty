@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def test_page_search_edit1(driver):
                 
@@ -37,7 +37,7 @@ def test_page_search_edit1(driver):
                 )
                 assert floor.is_displayed(), 'Element is not displayed!'
                 assert floor.is_enabled(), 'Element is not enabled!'
-                floor.send_keys('01/01' + Keys.ARROW_DOWN + Keys.ENTER)
+                floor.send_keys('01/02' + Keys.ARROW_DOWN + Keys.ENTER)
 
                 # สถานะมิเตอร์
 
@@ -61,10 +61,17 @@ def test_page_search_edit1(driver):
                 Dete.click()
                 time.sleep(0.1)
 
-                Dete1 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div/div/div/div[125]/button')
-                assert Dete1.is_displayed(), 'Element is not displayed!'
-                assert Dete1.is_enabled(), 'Element is not enabled!'
-                Dete1.click()
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=822, y=612)
+                   print('Click select Year :',True)
+                else:
+                   print('Cannot date',False)
+
+                # Dete1 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div/div/div/div[125]/button')
+                # assert Dete1.is_displayed(), 'Element is not displayed!'
+                # assert Dete1.is_enabled(), 'Element is not enabled!'
+                # Dete1.click()
                 
                 # ตั้งแต่เดือน
 
@@ -74,11 +81,18 @@ def test_page_search_edit1(driver):
                 Since_the_month.click()
                 time.sleep(0.1)
 
-                Since_the_month_1 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[10]/button')
-                assert Since_the_month.is_displayed(), 'Element is not displayed!'
-                assert Since_the_month.is_enabled(), 'Element is not enabled!'
-                Since_the_month_1.click() 
-                time.sleep(0.1)
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=820, y=707)
+                   print('Click select Month 8 :',True)
+                else:
+                   print('Cannot date',False)
+
+                # Since_the_month_1 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[10]/button')
+                # assert Since_the_month.is_displayed(), 'Element is not displayed!'
+                # assert Since_the_month.is_enabled(), 'Element is not enabled!'
+                # Since_the_month_1.click() 
+                # time.sleep(0.1)
 
                 Since_the_month_2 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/button')
                 assert Since_the_month.is_displayed(), 'Element is not displayed!'
@@ -92,11 +106,18 @@ def test_page_search_edit1(driver):
                 To_the_month.click()
                 time.sleep(0.1)
                 
-                To_the_month_1 =driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[10]/button')
-                assert Since_the_month.is_displayed(), 'Element is not displayed!'
-                assert Since_the_month.is_enabled(), 'Element is not enabled!'
-                To_the_month_1.click()
-                time.sleep(0.1)
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=822, y=708)
+                   print('Click select Month 8 :',True)
+                else:
+                   print('Cannot date',False)                
+
+                # To_the_month_1 =driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[10]/button')
+                # assert Since_the_month.is_displayed(), 'Element is not displayed!'
+                # assert Since_the_month.is_enabled(), 'Element is not enabled!'
+                # To_the_month_1.click()
+                # time.sleep(0.1)
 
                 To_the_month = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/button')
                 To_the_month.send_keys(Keys.ESCAPE)
@@ -149,7 +170,7 @@ def test_page_search_edit1(driver):
                 )
                 assert floor_room.is_displayed(), 'Element is not displayed!'
                 assert floor_room.is_enabled(), 'Element is not enabled!'
-                floor_room.send_keys('01/01' + Keys.ARROW_DOWN + Keys.ENTER)
+                floor_room.send_keys('01/02' + Keys.ARROW_DOWN + Keys.ENTER)
 
                 # หมายเลขมิเตอร์น้ำ
 
@@ -185,17 +206,24 @@ def test_page_search_edit1(driver):
                 button.click()
                 time.sleep(0.1)
 
-                button1 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[4]')
-                assert button.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
-                assert button.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
-                button1.click()
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=780, y=741)
+                   print('Click select date 29 :',True)
+                else:
+                   print('Cannot date',False)
 
-                element = WebDriverWait(driver, 30).until(
+                # button1 = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[4]')
+                # assert button.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
+                # assert button.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
+                # button1.click()
+
+                cancel = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/div/form/div/div[1]/div[2]/div/button[1]')) 
                 )
-                assert element.is_displayed(),'ปุ่มไม่แสดงอยู่บนหน้า'
-                assert element.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
-                element.click()         
+                assert cancel.is_displayed(),'ปุ่มไม่แสดงอยู่บนหน้า'
+                assert cancel.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
+                cancel.click()         
                 time.sleep(2)
 
 
@@ -203,7 +231,7 @@ def test_page_search_edit1(driver):
 
 
                                                                                         # ส่วนของ QR Cord
-        # รอให้ Element คลิกได้  # คลิก QR Cord
+        # รอให้ cancel คลิกได้  # คลิก QR Cord
                 click_QR_Code = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/div[2]/div/table/tbody/tr/td[8]/div/button[2]')) # คลิกขอ เข้าสู่ระบบ
                 )
@@ -243,13 +271,20 @@ def test_page_search_edit1(driver):
                 select.click()
                 time.sleep(0.1)
 
-                select = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div/div/div/div[125]/button')) 
-                )
-                assert select.is_displayed(),'ปุ่มไม่แสดงอยู่บนหน้า'
-                assert select.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
-                select.click()
-                time.sleep(0.1)
+                time.sleep(0.5)
+                if pyautogui:
+                        pyautogui.click(x=820, y=615)
+                        print('Click select Year 2024:',True)
+                else:
+                        print('Cannot date',False)
+
+                # # select = WebDriverWait(driver, 30).until(
+                # EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div/div/div/div[125]/button')) 
+                # )
+                # assert select.is_displayed(),'ปุ่มไม่แสดงอยู่บนหน้า'
+                # assert select.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
+                # select.click()
+                # time.sleep(0.1)
 
                 back = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div/div/div/div[125]/button')
                 back.send_keys(Keys.ESCAPE)

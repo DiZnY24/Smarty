@@ -208,19 +208,19 @@ class WebTestCase(unittest.TestCase):
         # else:
         #     self.fail('Fail',(False))
 
-        # test_page_search_edit1(self.driver)
-        # if test_page_search_edit1:
-        #     print('Test Search Edit  Already :',(True)) # ตรวจสอบการ ค้นหารายชื่อ พร้อมแก้ไข ไปพร้อมกัน
-        #     print('--------------------------------')
-        # else:
-        #     self.fail('Fail',(False))
+        test_page_search_edit1(self.driver)
+        if test_page_search_edit1:
+            print('Test Search Edit  Already :',(True)) # ตรวจสอบการ ค้นหารายชื่อ พร้อมแก้ไข ไปพร้อมกัน
+            print('--------------------------------')
+        else:
+            self.fail('Fail',(False))
 
 # ----------------------------------------------------------------------
 
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    # @classmethod
+    # def tearDownClass(cls):
+    #     cls.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
