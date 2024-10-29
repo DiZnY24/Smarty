@@ -12,6 +12,7 @@ from selenium.common.exceptions import NoSuchElementException,TimeoutException
 
 
 def page_search(driver):
+        
         try:
                 # เปิดหน้า จัดการประชุม
                 driver.get('https://msm-smarty-cms-staging.hr-impact.co/agm/meetings')

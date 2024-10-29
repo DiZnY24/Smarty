@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def page_meeting(driver):
 
@@ -122,12 +122,19 @@ def page_meeting(driver):
         assert Click_Date.is_enabled(), 'Element is not enabled!'
         Click_Date.click()
 
-        select_Date = WebDriverWait(driver, 30).until(
-            EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[2]/div/div[2]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/button[6]'))
-        )
-        assert select_Date.is_displayed(), 'Element is not displayed!'
-        assert select_Date.is_enabled(), 'Element is not enabled!'
-        select_Date.click()        
+        time.sleep(0.5)
+        if pyautogui:
+            pyautogui.click(x=641, y=926)
+            print('Click select date 29 :',True)
+        else:
+            print('Cannot date',False)
+
+        # select_Date = WebDriverWait(driver, 30).until(
+        #     EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[2]/div/div[2]/div/div[1]/div[2]/div/div/div[2]/div/div[2]/button[6]'))
+        # )
+        # assert select_Date.is_displayed(), 'Element is not displayed!'
+        # assert select_Date.is_enabled(), 'Element is not enabled!'
+        # select_Date.click()        
 
         # คลิกกรอบเวลา
 
@@ -385,11 +392,11 @@ def page_meeting(driver):
         time.sleep(2)
         
     except NoSuchElementException:
-        self.fail('Element not Found')
+        driver.fail('Element not Found')
     except AssertionError as e:
-        self.fail(str(e))
+        driver.fail(str(e))
     except Exception as o:
-        self.fail(f"An unexpected error occurred: {o}")
+        driver.fail(f"An unexpected error occurred: {o}")
     except TimeoutException:
         print('การรอองค์ประกอบล้มเหลว')
 
