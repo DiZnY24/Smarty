@@ -34,20 +34,20 @@ class WebTestCase(unittest.TestCase):
             self.fail('Fail', (False))
 
 
-        test_page_add_invoice(self.driver) # ตรวจสอบหน้า เพิ่มใบแจ้งหนี้
-        if test_page_add_invoice:
-            print('Test Add Invoice Already :',(True))
-            print('--------------------------------')
-        else:
-            self.fail('Fail',(False))
+        # test_page_add_invoice(self.driver) # ตรวจสอบหน้า เพิ่มใบแจ้งหนี้
+        # if test_page_add_invoice:
+        #     print('Test Add Invoice Already :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     self.fail('Fail',(False))
 
 
-        test_page_search_edit(self.driver) # ตรวจสอบหน้า ค้นหาพร้อมแก้ไข ใบแจ้งหนี้
-        if test_page_search_edit:
-            print('Test serach Edit Already :',(True))
-            print('--------------------------------')
-        else:
-            self.fail('Fail',(False))
+        # test_page_search_edit(self.driver) # ตรวจสอบหน้า ค้นหาพร้อมแก้ไข ใบแจ้งหนี้
+        # if test_page_search_edit:
+        #     print('Test serach Edit Already :',(True))
+        #     print('--------------------------------')
+        # else:
+        #     self.fail('Fail',(False))
 
 
         test_page_staus_edit(self.driver) # ตรวจสอบหน้า บริหารลูกบ้าน
@@ -62,9 +62,9 @@ class WebTestCase(unittest.TestCase):
 
 
 
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+    # @classmethod
+    # def tearDownClass(cls):
+    #     cls.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()

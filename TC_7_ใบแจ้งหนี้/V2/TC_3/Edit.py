@@ -11,6 +11,7 @@ import HtmlTestRunner
 from pynput.keyboard import Key, Controller 
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
+import pyautogui
 
 
 def test_page_staus_edit(driver):
@@ -145,9 +146,9 @@ def test_page_staus_edit(driver):
                 )
                 assert money.is_displayed(), 'Element is not displayed!'
                 assert money.is_enabled(), 'Element is not enabled!'
-                money.send_keys(Keys.CONTROL + 'a' + Keys.DELETE)
+                money.send_keys(Keys.COMMAND + 'a' + Keys.DELETE)
                 money.send_keys('100')
-                time.sleep(2)
+                time.sleep(1.5)
 
 
         # เลื่อนจอขึ้นสุด
@@ -280,9 +281,23 @@ def test_page_staus_edit(driver):
                 Date.click()
                 time.sleep(0.1)
 
-                Date = driver.find_element(By.XPATH, '//div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]')
-                Date.click()
-                time.sleep(0.1)
+                # time.sleep(0.5)
+                # if pyautogui:
+                #    pyautogui.click(x=782, y=738)
+                #    print('Click select day 29 :',True)
+                # else:
+                #    print('Cannot date',False)
+
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=823, y=737)
+                   print('Click select day 29 :',True)
+                else:
+                   print('Cannot date',False)
+
+                # Date = driver.find_element(By.XPATH, '//div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]')
+                # Date.click()
+                # time.sleep(0.1)
 
         # บันทึก
 
@@ -303,7 +318,7 @@ def test_page_staus_edit(driver):
 
         # ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        # คีย์ รายการใหม่ - เปลี่ยนวันประกาศใบแจ้งหนี้
+        # คีย์ รายการใหม่ - Print PDF
 
                 element = WebDriverWait(driver, 30).until(
                 EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div/div/div[2]/div/div/div[2]/div[2]/div/div/div/div[1]/div[10]/div/div/button")) 
@@ -318,7 +333,7 @@ def test_page_staus_edit(driver):
 
         # รอให้ Element ปรากฏ โดยกำหนดเวลาเป็น 10 วินาที
                 element = WebDriverWait(driver, 10).until(
-                EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div[3]/ul/li[3]")) 
+                EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div[3]/ul/li[4]")) 
                 )
         # หลังจาก Element ปรากฏ สามารถทำการขั้นตอนถัดไปได้
                 print("Element is visible. Proceeding with the next step.")

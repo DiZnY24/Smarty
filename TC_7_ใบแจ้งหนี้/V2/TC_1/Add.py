@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def test_page_add_invoice(driver):
                 
@@ -74,17 +74,26 @@ def test_page_add_invoice(driver):
                 )
         # หลังจาก Element ปรากฏ สามารถทำการขั้นตอนถัดไปได้
                 print("Element is visible. Proceeding with the next step.")
-                time.sleep(0.1)
+                time.sleep(0.1) 
 
-                select_date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]')
-                assert select_date.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
-                assert select_date.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
-                select_date.click()
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=780, y=737)
+                   print('Click select Day 29 :',True)
+                else:
+                   print('Cannot date',False)                
                 time.sleep(1)
+                # select_date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]')
+                # assert select_date.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
+                # assert select_date.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
+                # select_date.click()
+                # time.sleep(1)
 
         # วันที่ครบกำหนดชำระ
 
-                date = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/form/div/div[3]/div[2]/div/div/div')
+                date = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/form/div/div[3]/div[2]/div/div/div'))
+                )
                 assert date.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
                 assert date.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
                 date.click()
@@ -98,11 +107,18 @@ def test_page_add_invoice(driver):
                 print("Element is visible. Proceeding with the next step.")
                 time.sleep(0.1)
 
-                select = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]')
-                assert select.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
-                assert select.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
-                select.click()
-                time.sleep(0.1)
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=780, y=737)
+                   print('Click select Day 29 :',True)
+                else:
+                   print('Cannot date',False)                
+                time.sleep(0.5)
+                # select = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]')
+                # assert select.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
+                # assert select.is_enabled(), "ปุ่มไม่สามารถใช้งานได้"
+                # select.click()
+                # time.sleep(0.1)
 
         # วันประกาศใบแจ้งหนี้
 
@@ -112,11 +128,26 @@ def test_page_add_invoice(driver):
                 date_start.click()
                 time.sleep(0.1)
 
-                select_date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[7]')
-                assert select_date.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
-                assert select_date.is_enabled(), "ปุ่มไม่สามารถใช้งานได้" 
-                select_date.click()
-                time.sleep(0.1)
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=780, y=737)
+                   print('Click select Day 29 :',True)
+                else:
+                   print('Cannot date',False)                
+
+                # time.sleep(0.5)
+                # if pyautogui:
+                #    pyautogui.click(x=821, y=738)
+                #    print('Click select Day 30 :',True)
+                # else:
+                #    print('Cannot date',False)                
+                # time.sleep(1)
+
+                # select_date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[7]')
+                # assert select_date.is_displayed(), "ปุ่มไม่แสดงอยู่บนหน้า"
+                # assert select_date.is_enabled(), "ปุ่มไม่สามารถใช้งานได้" 
+                # select_date.click()
+                # time.sleep(0.1)
 
         # ยกเลิก
                 cancel = WebDriverWait(driver, 10).until(

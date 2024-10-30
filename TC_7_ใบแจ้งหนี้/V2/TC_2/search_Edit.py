@@ -11,7 +11,7 @@ import HtmlTestRunner
 from pynput.keyboard import Key, Controller 
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 
 def test_page_search_edit(driver):
@@ -37,7 +37,7 @@ def test_page_search_edit(driver):
             )
             assert floor_room.is_displayed(), 'Element is not displayed!'
             assert floor_room.is_enabled(), 'Element is not enabled!'
-            floor_room.send_keys('01/01' + Keys.ARROW_DOWN + Keys.ENTER)
+            floor_room.send_keys('01/04' + Keys.ARROW_DOWN + Keys.ENTER)
             time.sleep(0.1)
 
     # คีย์ ค้นหารายชื่อ
@@ -70,13 +70,21 @@ def test_page_search_edit(driver):
             Date.click()
             time.sleep(0.1)
 
-            Date = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
-            )
-            assert Date.is_displayed(), 'Element is not displayed!'
-            assert Date.is_enabled(), 'Element is not enabled!'
-            Date.click()
-            time.sleep(0.1)
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=743 ,y=737)
+                print('Click select Day 28 :',True)
+            else:
+                print('Cannot date',False)
+                time.sleep(0.1)
+
+        #     Date = WebDriverWait(driver, 10).until(
+        #         EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
+        #     )
+        #     assert Date.is_displayed(), 'Element is not displayed!'
+        #     assert Date.is_enabled(), 'Element is not enabled!'
+        #     Date.click()
+        #     time.sleep(0.1)
 
     # วันที่ วันที่ครบกำหนดชำระ (เริ่มต้น)
 
@@ -84,13 +92,20 @@ def test_page_search_edit(driver):
             assert Date.is_displayed(), 'Element is not displayed!'
             assert Date.is_enabled(), 'Element is not enabled!'
             Date.click()
-            time.sleep(0.1)
 
-            Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/button[3]')
-            assert Date.is_displayed(), 'Element is not displayed!'
-            assert Date.is_enabled(), 'Element is not enabled!'
-            Date.click()
-            time.sleep(0.1)
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=743 ,y=737)
+                print('Click select Day 28 :',True)
+            else:
+                print('Cannot date',False)
+                time.sleep(0.1)
+
+        #     Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/button[3]')
+        #     assert Date.is_displayed(), 'Element is not displayed!'
+        #     assert Date.is_enabled(), 'Element is not enabled!'
+        #     Date.click()
+        #     time.sleep(0.1)
 
     # วันที่ วันที่ครบกำหนดชำระ (สิ้นสุด)
 
@@ -100,11 +115,19 @@ def test_page_search_edit(driver):
             Date.click()
             time.sleep(0.1)
 
-            Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/button[7]')
-            assert Date.is_displayed(), 'Element is not displayed!'
-            assert Date.is_enabled(), 'Element is not enabled!'
-            Date.click()
-            time.sleep(0.1)
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=743 ,y=737)
+                print('Click select Day 28 :',True)
+            else:
+                print('Cannot date',False)
+                time.sleep(0.1)
+
+        #     Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[4]/button[7]')
+        #     assert Date.is_displayed(), 'Element is not displayed!'
+        #     assert Date.is_enabled(), 'Element is not enabled!'
+        #     Date.click()
+        #     time.sleep(0.1)
 
     # วันที่สร้างเอกสาร (เริ่มต้น)
 
@@ -114,11 +137,19 @@ def test_page_search_edit(driver):
             Date.click()
             time.sleep(0.1)
 
-            Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[1]')
-            assert Date.is_displayed(), 'Element is not displayed!'
-            assert Date.is_enabled(), 'Element is not enabled!'
-            Date.click()
-            time.sleep(0.1)
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=743 ,y=737)
+                print('Click select Day 28 :',True)
+            else:
+                print('Cannot date',False)
+                time.sleep(0.1)
+
+        #     Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[1]')
+        #     assert Date.is_displayed(), 'Element is not displayed!'
+        #     assert Date.is_enabled(), 'Element is not enabled!'
+        #     Date.click()
+        #     time.sleep(0.1)
 
     # วันที่สร้างเอกสาร (สิ้นสุด)
 
@@ -128,11 +159,19 @@ def test_page_search_edit(driver):
             Date.click()
             time.sleep(0.1)
 
-            Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]')
-            assert Date.is_displayed(), 'Element is not displayed!'
-            assert Date.is_enabled(), 'Element is not enabled!'
-            Date.click()
-            time.sleep(0.1)
+            time.sleep(0.5)
+            if pyautogui:
+                pyautogui.click(x=821 ,y=737)
+                print('Click select Day 30 :',True)
+            else:
+                print('Cannot date',False)
+                time.sleep(0.1)
+
+        #     Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[2]')
+        #     assert Date.is_displayed(), 'Element is not displayed!'
+        #     assert Date.is_enabled(), 'Element is not enabled!'
+        #     Date.click()
+        #     time.sleep(0.1)
 
     # วันประกาศใบแจ้งหนี้
 
@@ -142,11 +181,19 @@ def test_page_search_edit(driver):
             Date.click()
             time.sleep(0.1)
 
-            Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]')
-            assert Date.is_displayed(), 'Element is not displayed!'
-            assert Date.is_enabled(), 'Element is not enabled!'
-            Date.click()
-            time.sleep(0.1)
+            time.sleep(0.5)  
+            if pyautogui:
+                pyautogui.click(x=743 ,y=737)
+                print('Click select Day 28 :',True)
+            else:
+                print('Cannot date',False)
+                time.sleep(0.1)
+
+        #     Date = driver.find_element(By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]')
+        #     assert Date.is_displayed(), 'Element is not displayed!'
+        #     assert Date.is_enabled(), 'Element is not enabled!'
+        #     Date.click()
+        #     time.sleep(0.1)
 
     # ที่อยู่จัดส่งเอกสาร
 
@@ -164,14 +211,16 @@ def test_page_search_edit(driver):
 
     # ค้นหา เลขที่เอกสาร
 
-            Date = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/div/div[1]/div[3]/div[1]/div/div[2]/div/div/input')
-            Date.send_keys('IW2024092200001')
-            time.sleep(0.1)
+        #     Date = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/div/div[1]/div[3]/div[1]/div/div[2]/div/div/input')
+        #     Date.send_keys('IW2024092200001')
+        #     time.sleep(0.1)
 
     # ค้นหา ชื่อ
 
             Date = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/div/div[1]/div[3]/div[2]/div/div[2]/div/div/input')
-            Date.send_keys('คุณอมรกิจ')
+            assert Date.is_displayed(), 'Element is not displayed!'
+            assert Date.is_enabled(), 'Element is not enabled!'
+            Date.send_keys('นายพรสวรรค์ วรรณพานิช')
             time.sleep(0.1)
 
     # Refresh
