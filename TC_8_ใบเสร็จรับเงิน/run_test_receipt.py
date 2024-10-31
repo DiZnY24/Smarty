@@ -41,7 +41,6 @@ class WebTestCase(unittest.TestCase):
         else:
             self.fail('Fail',(False))
 
-
         test_page_serach_edit(self.driver) # ตรวจสอบหน้า ค้นหาพร้อมแก้ไข 
         if test_page_serach_edit:
             print('Test serach Edit Already :',(True))

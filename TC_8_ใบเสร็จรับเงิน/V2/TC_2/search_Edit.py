@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from  selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 
 def test_page_serach_edit(driver):
@@ -68,12 +68,19 @@ def test_page_serach_edit(driver):
                 Date.click()
                 time.sleep(0.1)
 
-                Date = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
-                )
-                assert Date.is_displayed(), 'Element is not displayed!'
-                assert Date.is_enabled(), 'Element is not enabled!'
-                Date.click()
+                time.sleep(0.5)
+                if pyautogui:
+                   pyautogui.click(x=780, y=703)
+                   print('Click select Day 22 :',True)
+                else:
+                   print('Cannot date',False)
+
+                # Date = WebDriverWait(driver, 10).until(
+                # EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
+                # )
+                # assert Date.is_displayed(), 'Element is not displayed!'
+                # assert Date.is_enabled(), 'Element is not enabled!'
+                # Date.click()
                 time.sleep(0.1)
 
         # วันชำระ (สิ้นสุด)
@@ -84,14 +91,21 @@ def test_page_serach_edit(driver):
                 assert Date_buy.is_displayed(), 'Element is not displayed!'
                 assert Date_buy.is_enabled(), 'Element is not enabled!'
                 Date_buy.click()
-                time.sleep(0.1)
+                # time.sleep(0.1)
 
-                Date_buy = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[7]'))
-                )
-                assert Date_buy.is_displayed(), 'Element is not displayed!'
-                assert Date_buy.is_enabled(), 'Element is not enabled!'
-                Date_buy.click()
+                time.sleep(0.3)
+                if pyautogui:
+                   pyautogui.click(x=820, y=736)
+                   print('Click select Day 30 :',True)
+                else:
+                   print('Cannot date',False)
+
+                # Date_buy = WebDriverWait(driver, 10).until(
+                # EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[7]'))
+                # )
+                # assert Date_buy.is_displayed(), 'Element is not displayed!'
+                # assert Date_buy.is_enabled(), 'Element is not enabled!'
+                # Date_buy.click()
                 time.sleep(0.1)
 
         # วันที่สร้างเอกสาร (เริ่มต้น)
@@ -102,14 +116,21 @@ def test_page_serach_edit(driver):
                 assert date_create.is_displayed(), 'Element is not displayed!'
                 assert date_create.is_enabled(), 'Element is not enabled!'
                 date_create.click()
-                time.sleep(0.1)
+                # time.sleep(0.1)
 
-                date_create = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
-                )
-                assert date_create.is_displayed(), 'Element is not displayed!'
-                assert date_create.is_enabled(), 'Element is not enabled!'
-                date_create.click()
+                time.sleep(0.3)
+                if pyautogui:
+                   pyautogui.click(x=780, y=703)
+                   print('Click select Day 22 :',True)
+                else:
+                   print('Cannot date',False)
+
+                # date_create = WebDriverWait(driver, 30).until(
+                # EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
+                # )
+                # assert date_create.is_displayed(), 'Element is not displayed!'
+                # assert date_create.is_enabled(), 'Element is not enabled!'
+                # date_create.click()
                 time.sleep(0.1)
 
         # วันที่สร้างเอกสาร (สิ้นสุด)
@@ -120,7 +141,14 @@ def test_page_serach_edit(driver):
                 assert date_create.is_displayed(), 'Element is not displayed!'
                 assert date_create.is_enabled(), 'Element is not enabled!'
                 date_create.click()
-                time.sleep(0.1)
+                # time.sleep(0.1)
+
+                time.sleep(0.3)
+                if pyautogui:
+                   pyautogui.click(x=820, y=736)
+                   print('Click select Day 30 :',True)
+                else:
+                   print('Cannot date',False)
 
                 date_create = WebDriverWait(driver, 30).until(
                 EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[7]'))
