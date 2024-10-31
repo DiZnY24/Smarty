@@ -66,9 +66,9 @@ def test_page_serach_edit(driver):
                 assert Date.is_displayed(), 'Element is not displayed!'
                 assert Date.is_enabled(), 'Element is not enabled!'
                 Date.click()
-                time.sleep(0.1)
+                # time.sleep(0.1)
 
-                time.sleep(0.5)
+                time.sleep(0.3)
                 if pyautogui:
                    pyautogui.click(x=780, y=703)
                    print('Click select Day 22 :',True)

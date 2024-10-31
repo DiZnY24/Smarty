@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from  selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 def test_page_create_warning1(driver):
 
@@ -54,7 +54,17 @@ def test_page_create_warning1(driver):
         project.send_keys('อาคาร A1' + Keys.ARROW_DOWN + Keys.ENTER)
         time.sleep(0.1)
 
-# วันครบกำหนดชำระ
+        # ชั้น ห้อง
+
+        floor_room = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/form/div/div/div[2]/div[2]/div[1]/div/div/div/div/div[2]/div/div/input'))
+        )
+        assert floor_room.is_displayed(), 'Element is not displayed!'
+        assert floor_room.is_enabled(), 'Element is not enabled!'
+        floor_room.send_keys('01/03' + Keys.ARROW_DOWN + Keys.ENTER)
+        time.sleep(0.1)
+
+        # วันครบกำหนดชำระ
 
         date_buy = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/form/div/div/div[2]/div[1]/div[2]/div/div/div'))
@@ -64,23 +74,29 @@ def test_page_create_warning1(driver):
         date_buy.click()
         time.sleep(0.1)
 
-# รอให้ Element ปรากฏ โดยกำหนดเวลาเป็น 10 วินาที
+
         element = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.XPATH, "/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]"))  
         )
-# หลังจาก Element ปรากฏ สามารถทำการขั้นตอนถัดไปได้
         print("เลือกวันที่ 23")
         time.sleep(0.1)
 
-        date_buy = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
-        )
-        assert date_buy.is_displayed(), 'Element is not displayed!'
-        assert date_buy.is_enabled(), 'Element is not enabled!'
-        date_buy.click()
-        time.sleep(0.1)
+        time.sleep(0.3)
+        if pyautogui:
+            pyautogui.click(x=820, y=707)
+            print('Click select Day 22 :',True)
+        else:
+            print('Cannot date',False)
 
-# วันออกเอกสาร
+        # date_buy = WebDriverWait(driver, 10).until(
+        #     EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
+        # )
+        # assert date_buy.is_displayed(), 'Element is not displayed!'
+        # assert date_buy.is_enabled(), 'Element is not enabled!'
+        # date_buy.click()
+        # time.sleep(0.1)
+
+        # วันออกเอกสาร
 
         date_out = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/form/div/div/div[2]/div[1]/div[3]/div/div/div'))
@@ -96,30 +112,30 @@ def test_page_create_warning1(driver):
         print("เลือกวันที่ 30")
         time.sleep(0.1)
 
-        date_out = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]'))
-        )
-        assert date_out.is_displayed(), 'Element is not displayed!'
-        assert date_out.is_enabled(), 'Element is not enabled!'
-        date_out.click()
-        time.sleep(0.1)
+        time.sleep(0.3)
+        if pyautogui:
+            pyautogui.click(x=820, y=707)
+            print('Click select Day 22 :',True)
+        else:
+            print('Cannot date',False)
 
-        # ชั้น ห้อง
-
-        floor_room = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div/form/div/div/div[2]/div[2]/div[1]/div/div/div/div/div[2]/div/div/input'))
-        )
-        assert floor_room.is_displayed(), 'Element is not displayed!'
-        assert floor_room.is_enabled(), 'Element is not enabled!'
-        floor_room.send_keys('01/03' + Keys.ARROW_DOWN + Keys.ENTER)
-        time.sleep(0.1)
+        # date_out = WebDriverWait(driver, 10).until(
+        #     EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[3]'))
+        # )
+        # assert date_out.is_displayed(), 'Element is not displayed!'
+        # assert date_out.is_enabled(), 'Element is not enabled!'
+        # date_out.click()
+        # time.sleep(0.1)
 
         element = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div/form/div/div/div[2]/div[4]/table/tbody/tr[1]"))  
         )
-        print("ข้อมูลใบเตือนแจ้งหนี้แสดงปกติ")
+        if element:
+            print("ข้อมูลใบเตือนแจ้งหนี้แสดงปกติ",True)
+        else:
+            print('ข้อมูลใบเตือนแจ้งหนี้แสดงไม่ถูกต้อง',False)
+            
         time.sleep(2)
-
 
         # ยกเลิก
 

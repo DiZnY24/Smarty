@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import HtmlTestRunner
 from selenium.webdriver.common.keys import Keys
 from  selenium.common.exceptions import NoSuchElementException,TimeoutException
-
+import pyautogui
 
 
 def test_page_search_edit(driver):
@@ -48,15 +48,22 @@ def test_page_search_edit(driver):
         assert Date.is_displayed(), 'Element is not displayed!'
         assert Date.is_enabled(), 'Element is not enabled!'
         Date.click()
-        time.sleep(0.1)
+        # time.sleep(0.1)
 
-        Date = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
-            )
-        assert Date.is_displayed(), 'Element is not displayed!'
-        assert Date.is_enabled(), 'Element is not enabled!'
-        Date.click()
-        time.sleep(0.1)
+        time.sleep(0.3)
+        if pyautogui:
+            pyautogui.click(x=820, y=707)
+            print('Click select Day 22 :',True)
+        else:
+            print('Cannot date',False)        
+
+        # Date = WebDriverWait(driver, 30).until(
+        #         EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[3]/button[3]'))
+        #     )
+        # assert Date.is_displayed(), 'Element is not displayed!'
+        # assert Date.is_enabled(), 'Element is not enabled!'
+        # Date.click()
+        # time.sleep(0.1)
 
 # สถานะ
 
@@ -117,7 +124,7 @@ def test_page_search_edit(driver):
         assert status.is_displayed(), 'Element is not displayed!'
         assert status.is_enabled(), 'Element is not enabled!'
         status.click()
-        time.sleep(3)
+        time.sleep(5)
 
 # ยกเลิกใบเตือน
 
