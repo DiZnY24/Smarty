@@ -11,8 +11,8 @@ import HtmlTestRunner
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
 import pyautogui
 
+
 def page_dashboard(driver):
-# *** เปิดหน้า รายชื่อคนลงทะเบียน (อนุมัติ)***
         
     try:
 
@@ -23,11 +23,13 @@ def page_dashboard(driver):
 
         Project = WebDriverWait(driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, 
-        '/html/body/div/div/main/div/div/div/div/div[1]/div/div[1]/div/div/div/div/div[2]/div/div')) 
+        '//*[@class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot mui-style-s2ujxz"]')) 
         )
         assert Project.is_displayed(), 'Element is not displayed!'
         assert Project.is_enabled(), 'Element is not enabled!'
         Project.click()
+
+        time.sleep(0.5)
 
         Project = WebDriverWait(driver, 30).until(
             EC.element_to_be_clickable((By.XPATH, 
@@ -37,76 +39,71 @@ def page_dashboard(driver):
         assert Project.is_enabled(), 'Element is not enabled!'
         Project.send_keys('อาคาร C1' + Keys.ARROW_DOWN + Keys.ENTER + Keys.ESCAPE)
 
-        # คลิกวันที่สร้าง 
+        # คลิกเดือนล่าสุด 
 
-        start_date = WebDriverWait(driver, 10).until(
+        click_month = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, 
-        '/html/body/div/div/main/div/div/div/div/div[1]/div/div[2]/div/div')) 
+        '/html/body/div/div/main/div/div/div/div/div[1]/div/div[2]/div[2]/div/div')) 
         )
-        assert start_date.is_displayed(), 'Element is not displayed!'
-        assert start_date.is_enabled(), 'Element is not enabled!'
-        start_date.click()
+        assert click_month.is_displayed(), 'Element is not displayed!'
+        assert click_month.is_enabled(), 'Element is not enabled!'
+        click_month.click()
 
-        # เลือกวันที่
+        # เลือกเลือกเดือน
 
-        time.sleep(0.5)
-        pyautogui.click(x=823, y=665)
-        # select_day = WebDriverWait(driver, 10).until(
-        #     EC.element_to_be_clickable((By.XPATH, 
-        # '/html/body/div[2]/div[3]/div/div/div/div[2]/div/div[2]/div/div/div[2]/div/div[5]/button[1]')) 
-        # )
-        # assert select_day.is_displayed(), 'Element is not displayed!'
-        # assert select_day.is_enabled(), 'Element is not enabled!'
-        # select_day.click()
+        # time.sleep(0.5)
+        # pyautogui.click(x=823, y=665)
 
-        # วันที่สินสุด
-
-        date_end = WebDriverWait(driver, 10).until(
+        select_month = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, 
-        '/html/body/div[1]/div/main/div/div/div/div/div[1]/div/div[3]/div/div')) 
+        '/html/body/div[2]/div[3]/ul/li[2]')) 
         )
-        assert date_end.is_displayed(), 'Element is not displayed!'
-        assert date_end.is_enabled(), 'Element is not enabled!'
-        date_end.click()
-
-        # เลือกวันที่
-
-        time.sleep(0.5)
-        pyautogui.click(x=820, y=699)
-        # select_day = WebDriverWait(driver, 10).until(
-        #     EC.element_to_be_clickable((By.XPATH, 
-        # '//div/div[2]/div/div/div[2]/div/div[5]/button[2]')) 
-        # )
-        # assert select_day.is_displayed(), 'Element is not displayed!'
-        # assert select_day.is_enabled(), 'Element is not enabled!'
-        # select_day.click()
+        assert select_month.is_displayed(), 'Element is not displayed!'
+        assert select_month.is_enabled(), 'Element is not enabled!'
+        select_month.click()
 
         # เลือกปี
-        
-        time.sleep(0.5)
-        pyautogui.click(x=1430, y=667)
-        # select_year = WebDriverWait(driver, 10).until(
-        #     EC.element_to_be_clickable((By.XPATH, 
-        # '/html/body/div/div/main/div/div/div/div/div[3]/div/div[1]/div/div[2]/div/div/div'))
-        # )
-        # assert select_year.is_displayed(), 'Element is not displayed!'
-        # assert select_year.is_enabled(), 'Element is not enabled!'
-        # select_year.click()
 
-        # คลิก 2024
-        
         select_year = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, 
-        '//div[2]/div/div/div/div/div[125]/button'))
+        '//*/div[3]/div[2]/div/div/div')) 
         )
         assert select_year.is_displayed(), 'Element is not displayed!'
         assert select_year.is_enabled(), 'Element is not enabled!'
         select_year.click()
 
-        if select_year:
-            print('select yaer 2024 : Pass')
-        else:
-            print('Not select yaer : Fail')
+        # เลือกวันที่
+
+        # time.sleep(0.5)
+        # pyautogui.click(x=820, y=699)
+        
+        select_day = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, 
+        '//*[@class="MuiList-root MuiList-padding MuiMenu-list mui-style-r8u8y9"]//li[4]')) 
+        )
+        assert select_day.is_displayed(), 'Element is not displayed!'
+        assert select_day.is_enabled(), 'Element is not enabled!'
+        select_day.click()
+
+        # check_element = WebDriverWait(driver, 30).until(
+        #     EC.visibility_of_element_located((By.XPATH, '//*[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root mui-style-kkge07"]'))
+        # )
+        # if check_element:
+        #     print('Element Show Already',True)
+        # else:
+        #     print('Element not Found',False)
+
+        while True:
+            try:
+                # ตรวจสอบว่า element ที่เราต้องการมีการแสดงผลหรือไม่
+                check_element = WebDriverWait(driver, 10).until(
+                EC.visibility_of_element_located((By.XPATH, '//*[@class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root mui-style-kkge07"]')))
+                print("Element found! :",True)
+                break  # ออกจาก while loop เมื่อพบ element
+            except:
+                print("Element not found, retrying...")
+                time.sleep(1)  # รอ 1 วินาทีแล้วลองใหม่
+
 
     except NoSuchElementException:
         driver.fail('Element not Found')

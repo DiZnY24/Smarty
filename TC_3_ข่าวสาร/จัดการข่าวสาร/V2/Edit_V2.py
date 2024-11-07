@@ -136,6 +136,8 @@ def page_edit_news(driver):
             Add_Text.send_keys(Keys.COMMAND + 'a' + Keys.DELETE)
             Add_Text.send_keys('TestNew')
 
+            time.sleep(1)
+
             Check_messages = driver.find_element(By.XPATH, '//div/div/div/form/div/div[2]/div/div[2]/div/div/div/div/div/div[1]/div[1]/div/div')
             expected_text = 'TestNew'
             assert Check_messages.text == expected_text, f"ข้อความไม่ตรงกัน: คาดว่า '{expected_text}' แต่ได้ '{Check_messages.text}'"
@@ -158,12 +160,23 @@ def page_edit_news(driver):
             else:
                 print('Cannot Click Save :',(False))
             
+            time.sleep(3)
 
-            element = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located((By.XPATH, "//div[2]/div[1]/div/table/tbody/tr[1]/td[1]/p"))  # เปลี่ยนเป็นตัวระบุตำแหน่งของคุณ
-            )
-    # หลังจาก Element ปรากฏ สามารถทำการขั้นตอนถัดไปได้
-            print("Edit Alraedy :",(True))
+            while True:
+
+                Check_element = WebDriverWait(driver, 10).until(
+                EC.visibility_of_element_located((By.XPATH, '/html/body/div/div/main/div/div/div/div/div[2]/div[1]/div/table/tbody/tr[1]/td[3]/p')))
+
+                if Check_element.text == 'New_Kub':
+                    print('ข้อความขึ้นถูกต้อง!',True)
+                    break
+                elif Check_element.text == 'New_Kub ข้อความขึ้นเป็นอีกแบบ':
+                    print('ข้อมความขึ้นไม่ถูกต้อง!!! :',False)
+                else:
+                    print('ไม่ตรงเงื่อนไขที่ตั้งไว้',False)
+                    break
+           
+                time.sleep(0.5)
 
         except NoSuchElementException:
             driver.fail('Element not Found')

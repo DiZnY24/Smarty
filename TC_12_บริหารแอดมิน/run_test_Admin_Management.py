@@ -30,7 +30,6 @@ class WebTestCase(unittest.TestCase):
         else:
             self.fail('Fail', (False))
 
-
         test_page_add_user(self.driver) # ตรวจสอบหน้า สร้างใบเตือนรายบุคคล
         if test_page_add_user:
             print('Test Add User Already :',(True))

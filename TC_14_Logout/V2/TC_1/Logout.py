@@ -54,6 +54,8 @@ def test_page_logout(driver):
             Click_logout.click() 
             time.sleep(0.1) 
 
+            time.sleep(3)
+
         except NoSuchElementException:
             driver.fail('Element not Found')
         except AssertionError as e:

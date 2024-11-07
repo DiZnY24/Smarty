@@ -26,7 +26,7 @@ def page_pending(driver):
             '/html/body/div/div/main/div/div/div/div[1]/div[1]/div/div/div/div/input')) 
             )
             assert select_building.is_displayed(), 'Element is not displayed!'
-            select_building.send_keys('อาคาร C1' + Keys.ARROW_DOWN + Keys.ENTER + Keys.ESCAPE)
+            select_building.send_keys('อาคาร C6' + Keys.ARROW_DOWN + Keys.ENTER + Keys.ESCAPE)
             
             input_key = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/div[1]/div[1]/div/div/div/div/input')
             input_value = input_key.get_attribute('value')
@@ -47,7 +47,7 @@ def page_pending(driver):
             '/html/body/div/div/main/div/div/div/div[1]/div[2]/div[1]/div/div/div/div/div[2]/div/div/input')) 
             )
             assert floor_room.is_displayed(), 'Element is not displayed!'
-            floor_room.send_keys('04/02' + Keys.ARROW_DOWN + Keys.ENTER)
+            floor_room.send_keys('03/48' + Keys.ARROW_DOWN + Keys.ENTER)
             
     
             input_key = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/div[1]/div[2]/div[1]/div/div/div/div/div[2]/div/div/input')
@@ -60,7 +60,7 @@ def page_pending(driver):
             '/html/body/div/div/main/div/div/div/div[1]/div[2]/div[2]/div/div/div[2]/div/div/input')) 
             )
             assert Search_by_name.is_displayed(), 'Element is not displayed!'
-            Search_by_name.send_keys('0935909660' + Keys.ARROW_DOWN + Keys.ENTER)
+            Search_by_name.send_keys('monny some' + Keys.ARROW_DOWN + Keys.ENTER)
         
             input_key = driver.find_element(By.XPATH, '/html/body/div/div/main/div/div/div/div[1]/div[2]/div[2]/div/div/div[2]/div/div/input')
             input_value = input_key.get_attribute('value')

@@ -284,6 +284,24 @@ def page_edit_call_to_action_v1(driver):
             else:
                 print('Cannot Edit :',(False))
 
+            time.sleep(3)
+
+            while True:
+
+                Check_element = WebDriverWait(driver, 10).until(
+                EC.visibility_of_element_located((By.XPATH, '/html/body/div[1]/div/main/div/div/div/div/div[2]/div[1]/div/table/tbody/tr[1]/td[3]/p')))
+
+                if Check_element.text == 'Test_Nwes':
+                    print('ข้อความขึ้นถูกต้อง!',True)
+                    break
+                elif Check_element.text == 'Test_Nwes ข้อความขึ้นเป็นอีกแบบ':
+                    print('ข้อมความขึ้นไม่ถูกต้อง!!! :',False)
+                else:
+                    print('ไม่ตรงเงื่อนไขที่ตั้งไว้',False)
+                    break
+           
+                time.sleep(0.5)
+
         except NoSuchElementException:
             driver.fail('Element not Found')
         except AssertionError as e:

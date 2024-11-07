@@ -26,21 +26,21 @@ class WebTestCase(unittest.TestCase):
         else:
             print('Fail')
 
-        for i in range(2):
-            print('ลูป 2 รอบ')
-            page_dashboard(self.driver) # ตรวจสอบหน้า Pending
-            if page_dashboard:
-                print('Test Page Dashboard : Pass')
-                print('--------------------------------')
-            else:
-                print('Fail')
-                break
-            pass
+        # for i in range(2):
+            # print('ลูป 2 รอบ')
+        page_dashboard(self.driver) # ตรวจสอบหน้า Pending
+        if page_dashboard:
+            print('Test Page Dashboard : ',True)
+            print('--------------------------------')
+        else:
+            print('Fail',False)
+                # break
+            # pass
 
-    # @classmethod
-    # def tearDownClass(cls):
-    #     time.sleep(1)
-    #     cls.driver.quit()
+    @classmethod
+    def tearDownClass(cls):
+        time.sleep(1)
+        cls.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
